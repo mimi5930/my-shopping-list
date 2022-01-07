@@ -1,0 +1,43 @@
+/* Universal Styling Start */
+
+* {
+    font-family: 'M PLUS Rounded 1c', sans-serif;;
+    /* !In materialize: class = blue darken-4 */
+    --primary-color: #0d47a1;
+    /* !In materialize: class = blue darken-1*/
+    --secondary-color: #1e88e5;
+}
+
+body, html {
+    height: 100%;
+}
+
+/* Universal Styling End */
+
+/* General Styling Start */
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    text-shadow: 0 0 1px black;
+    font-size: 50px;
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 35px;
+}
+
+h3 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 30px;
+}
+
+/* !make sure container element has a background color */
+p {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
