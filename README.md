@@ -20,4 +20,4 @@ To run this project,
 (screenshot)
 
 # Authors
-Yasemin Akturk, Cameron Nelson, Mike Miller, Nate Heurd, Robel 
+Yasemin Akturk, Robel Gebremeskel, Nate Heurd, Mike Miller, Cameron Nelson. 
