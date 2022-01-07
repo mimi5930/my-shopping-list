@@ -16,13 +16,18 @@
         <header class="title" id="Title">
             <h1><i class="medium material-icons">add_shopping_cart</i>My Shopping List</h1>
         </header>
-        <div>
+        <div class="container search">
             <h2>Search for items here:</h2> <!-- allow for multiple values to be entered. set up for loop of array -->
             <form id="item-input">
-                Enter Item:
+                <div class="input-field">
+                    <i class="material-icons prefix">search</i>
+                    <input class="validate" type="text" id="item-text">
+                    <label class="active" for="item-text">Enter Item:</label>
+                    <a id="item-button" class="waves-effect waves-light btn blue darken-1">Search</a>
+                </div>
             </form>
         </div>
-      <div id="Output">
+        <div id="Output">
         <div>
             <table> <!-- Item Name and Price to be a total of half the width of the page -->
                 <thead>
@@ -53,8 +58,7 @@
             <h1 class="footer-title">Thank you!</h1>
         </footer>
         <!--JavaScript at end of body for optimized loading-->
-        <!-- !This is returning an error 404 at the moment because the js file doesn't exist in the folder -->
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     </body>
 </html>
