@@ -1,11 +1,13 @@
 /* Universal Styling Start */
-
-* {
-    font-family: 'M PLUS Rounded 1c', sans-serif;;
+:root {
     /* !In materialize: class = blue darken-4 */
     --primary-color: #0d47a1;
     /* !In materialize: class = blue darken-1*/
     --secondary-color: #1e88e5;
+}
+
+* {
+    font-family: 'M PLUS Rounded 1c', sans-serif;;
 }
 
 body, html {
