@@ -2,8 +2,10 @@
 :root {
     /* !In materialize: class = blue darken-4 */
     --primary-color: #0d47a1;
-    /* !In materialize: class = blue darken-1*/
+    /* !In materialize: class = blue darken-1 */
     --secondary-color: #1e88e5;
+    /* !In materialize: class = white  */
+    --tertiary-color: #ffffff;
 }
 
 * {
@@ -19,7 +21,7 @@ body, html {
 /* General Styling Start */
 
 h1 {
-    color: var(--primary-color);
+    color: var(--tertiary-color);
     text-align: center;
     text-shadow: 0 0 1px black;
     font-size: 50px;
@@ -39,7 +41,15 @@ h3 {
 
 /* !make sure container element has a background color */
 p {
-    color: white;
+    color: var(--tertiary-color);
     text-align: center;
     font-size: 18px;
+}
+
+/* Footer Style Start */
+
+.footer-title {
+    color: var(--tertiary-color);
+    padding-bottom: 50px;
+
 }
