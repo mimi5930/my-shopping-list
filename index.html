@@ -13,9 +13,11 @@
         <title>My Shopping List</title>
     </head>
     <body>
+
         <header class="title" id="Title">
             <h1><i class="medium material-icons">add_shopping_cart</i>My Shopping List</h1>
         </header>
+
         <div class="container search">
             <h2>Search for items here:</h2> <!-- allow for multiple values to be entered. set up for loop of array -->
             <form id="item-input">
@@ -27,33 +29,37 @@
                 </div>
             </form>
         </div>
-        <div id="Output">
-        <div>
-            <table> <!-- Item Name and Price to be a total of half the width of the page -->
-                <thead>
-                    <tr>
-                        <th>Item Name</th>
-                        <th>Item Price</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    <tr> <!-- dynamically create these based on user input -->
-                        <!-- <td></td>  dynamically create these based on user input -->
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="total">
-            <h3>Total:</h3>
-        </div>    
-        <div>
-            <form id="city-input">
-                Enter City:
-            </form>
-            <h3>Nearest Store To:</h3>
-        </div>
+        <div class="row" id="Output">
+            <div class="container col m6">
+                <div>
+                    <table> <!-- Item Name and Price to be a total of half the width of the page -->
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Item Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr> <!-- dynamically create these based on user input -->
+                                <!-- <td></td>  dynamically create these based on user input -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="total">
+                    <h3>Total:</h3>
+                </div>
+            </div>
+            <div class="container col m6">
+                <form id="city-input">
+                    Enter City:
+                </form>
+                <h3>Nearest Store To:</h3>
+            </div>
       </div>
+
         <footer class="page-footer blue darken-4">
             <h1 class="footer-title">Thank you!</h1>
         </footer>
