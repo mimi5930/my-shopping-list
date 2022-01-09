@@ -73,6 +73,52 @@ p {
 }
 /* Search Style End */
 
+/* Output Style Start */
+
+.item-info {
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    padding: 25px;
+    overflow: auto;
+}
+
+table,
+th,
+td {
+    color: var(--tertiary-color);
+    margin-top: 20px;
+    padding: 20px;
+    border: 2.5px solid var(--tertiary-color);
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--primary-color);
+    font-size: 30px;
+}
+
+td {
+    font-size: 20px;
+}
+
+.total {
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.total-container {
+    background-color: var(--tertiary-color);
+    padding: 1px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* min-width: 234.5px; */
+}
+
+/* Output Style End */
+
 /* Footer Style Start */
 
 .footer-title {

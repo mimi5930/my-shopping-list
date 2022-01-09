@@ -25,22 +25,21 @@
                     <i class="material-icons prefix">search</i>
                     <input class="validate" type="text" id="item-text">
                     <label class="active" for="item-text">Enter Item:</label>
-                    <a id="item-button" class="waves-effect waves-light btn blue darken-1">Search</a>
+                    <a id="item-button" class="waves-effect waves-light btn blue darken-4">Search</a>
                 </div>
             </form>
         </div>
-
-        <div class="row" id="Output">
-            <div class="container col m6">
+        <div></div>
+        <div class="row item-info" id="Output">
+            <div class="col m6">
                 <div>
-                    <table> <!-- Item Name and Price to be a total of half the width of the page -->
+                    <table class="highlight"> <!-- Item Name and Price to be a total of half the width of the page -->
                         <thead>
                             <tr>
                                 <th>Item Name</th>
                                 <th>Item Price</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr> <!-- dynamically create these based on user input -->
                                 <!-- <td></td>  dynamically create these based on user input -->
@@ -48,11 +47,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="total">
-                    <h3>Total:</h3>
+                <div class="total-container" id="total">
+                    <h3 class="total">TOTAL: 15.99</h3>
                 </div>
             </div>
-            <div class="container col m6">
+            <div class="col m6">
                 <form class="input-field" id="city-input">
                     <label for="city-text">Enter City:</label>
                     <input type="text" name="city-text" id="city-text">
