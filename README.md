@@ -15,7 +15,8 @@ To help enhance a user's shopping experience by allowing them to find the cost o
 To run this project, 
 
 # Website
-(link)
+https://mimi5930.github.io/my-shopping-list/
+
 # Screenshot of deployed web application
 (screenshot)
 
