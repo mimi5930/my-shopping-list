@@ -25,22 +25,21 @@
                     <i class="material-icons prefix">search</i>
                     <input class="validate" type="text" id="item-text">
                     <label class="active" for="item-text">Enter Item:</label>
-                    <a id="item-button" class="waves-effect waves-light btn blue darken-1">Search</a>
+                    <a id="item-button" class="waves-effect waves-light btn blue darken-4">Search</a>
                 </div>
             </form>
         </div>
-
-        <div class="row" id="Output">
-            <div class="container col m6">
+        <div></div>
+        <div class="row item-info" id="Output">
+            <div class="col m6">
                 <div>
-                    <table> <!-- Item Name and Price to be a total of half the width of the page -->
+                    <table class="highlight"> <!-- Item Name and Price to be a total of half the width of the page -->
                         <thead>
                             <tr>
                                 <th>Item Name</th>
                                 <th>Item Price</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr> <!-- dynamically create these based on user input -->
                                 <!-- <td></td>  dynamically create these based on user input -->
@@ -48,16 +47,30 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="total">
-                    <h3>Total:</h3>
+                <div class="total-container" id="total">
+                    <h3 class="total">TOTAL:</h3>
                 </div>
             </div>
-            <div class="container col m6">
-                <form class="input-field" id="city-input">
-                    <label for="city-text">Enter City:</label>
-                    <input type="text" name="city-text" id="city-text">
-                </form>
-                <h3>Nearest Store To:</h3>
+            <div class="city-map-container col m6">
+                <div class="city-search">
+                    <form class="input-field" id="city-input">
+                        <i class="material-icons prefix">map</i>
+                        <label for="city-text">Enter City:</label>
+                        <input type="text" name="city-text" id="city-text" placeholder="Minneapolis">
+                    </form>
+                    <h3>
+                        Nearest Store To 
+                        <span class="city-name">Minneapolis</span>:<!-- Add city text's value in place of Minneapolis -->
+                    </h3>
+                </div>
+                <div class="map"> <!-- !iframe is just a placeholder for now! -->
+                    <iframe class="" width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=45.01069048526523~-93.23169708251953&lvl=12&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                    </iframe>
+                    <div style="margin: auto; white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+                        <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=45.01069048526523~-93.23169708251953&amp;sty=r&amp;lvl=12&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
+                        <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=45.01069048526523~-93.23169708251953&amp;sty=r&amp;lvl=12&amp;rtp=~pos.45.01069048526523_-93.23169708251953____&amp;FORM=MBEDLD">Get Directions</a>
+                    </div>
+                </div>
             </div>
       </div>
 
