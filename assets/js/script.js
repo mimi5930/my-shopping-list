@@ -95,10 +95,8 @@ var displayProduct = function(name,price) {
    var row = table.insertRow(rowCount);
  
     
-    row.insertCell(0).innerHTML= name;
+    row.insertCell(0).innerHTML= name + '<br><input type="button" class="waves-effect waves-light btn blue darken-4" value = "Remove item" onClick="deleteRow(this)">';
     row.insertCell(1).innerHTML= price;
-    row.insertCell(2).innerHTML= '<input type="button" value = "Add to list">' +  
-                                  '<input type="button" value = "Remove item" onClick="deleteRow(this)">';
 }
 
 function deleteRow(obj) {
