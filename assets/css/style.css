@@ -116,6 +116,7 @@ td {
     padding: 1px;
     border-bottom-left-radius: var(--border-default);
     border-bottom-right-radius: var(--border-default);
+    min-width: 424.333px;
 }
 
 /* Output Style End */
