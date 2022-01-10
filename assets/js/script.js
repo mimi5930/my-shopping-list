@@ -1,6 +1,6 @@
 //
-var searchHistoryItemArr = []
-var searchHistoryPriceArr = []
+var searchHistoryItemArr = ["test"]
+var searchHistoryPriceArr = ["test"]
 // bestbuy api - request to find a departmentstores with area codes
 fetch("https://api.bestbuy.com/v1/products(name=iphone*)?show=salePrice&apiKey=Ou7MZjAsEdRGa1vhKpsui9Xg")
  .then(function(response) {
@@ -26,16 +26,15 @@ fetch("https://api.bestbuy.com/v1/stores(area(55423,10))?show=storeId,name,hours
 });
 
 
-
-var saveToHistoryArr = function(Item, P){
-  searchHistoryItemArr.push(Item)
-  searchHistoryPriceArr.push(P)
+// function that adds Item and Price to their arrays and then adds them to the local storage
+var saveToHistoryArr = function(Item, Price){
   for(var i = 0; i < searchHistoryItemArr.length; i++){
   localStorage.setItem("Item: " + i, Item)
-  console.log(searchHistoryItemArr)}
-  for(var i = 0; i < searchHistoryPriceArr,length; i++){
-  localStorage.setItem("Price: " + i, P)
-  console.log(searchHistoryPriceArr)  
+  console.log(searchHistoryItemArr)
+}
+  for(var i = 0; i < searchHistoryPriceArr.length; i++){
+  localStorage.setItem("Price: " + i, Price)
+  console.log(searchHistoryPriceArr)
 }
 }
-saveToHistoryArr("TV", "20$")
+saveToHistoryArr("TV", "20")
