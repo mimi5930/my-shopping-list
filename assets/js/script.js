@@ -1,6 +1,6 @@
 //
-var searchHistoryItemArr = ["test"]
-var searchHistoryPriceArr = ["test"]
+var searchHistoryItemArr = []
+var searchHistoryPriceArr = []
 // bestbuy api - request to find a departmentstores with area codes
 fetch("https://api.bestbuy.com/v1/products(name=iphone*)?show=salePrice&apiKey=Ou7MZjAsEdRGa1vhKpsui9Xg")
  .then(function(response) {
@@ -25,19 +25,24 @@ fetch("https://api.bestbuy.com/v1/stores(area(55423,10))?show=storeId,name,hours
     });
 });
 
-
+var getFromHistoryArr = function(){
+  var localItem = JSON.parse(localStorage.getItem("Item History"));
+  var localPrice = JSON.parse(localStorage.getItem("Price History"));
+  for(var i= 0;i < localPrice.length; i++){
+    searchHistoryPriceArr.push(localPrice[i])
+    searchHistoryItemArr.push(localItem[i])
+  }
+  for(i = 0; i < searchHistoryPriceArr.length; i++){
+    var price = searchHistoryPriceArr[i];
+    var name = searchHistoryItemArr[i];
+    displayProduct(name,price)
+  }
+}
 // function that adds Item and Price to their arrays and then adds them to the local storage
-var saveToHistoryArr = function(Item, Price){
-  for(var i = 0; i < searchHistoryItemArr.length; i++){
-  localStorage.setItem("Item: " + i, Item)
-  console.log(searchHistoryItemArr)
+var saveToHistoryArr = function(){
+  localStorage.setItem("Item History", JSON.stringify(searchHistoryItemArr))
+  localStorage.setItem("Price History", JSON.stringify(searchHistoryPriceArr)) 
 }
-  for(var i = 0; i < searchHistoryPriceArr.length; i++){
-  localStorage.setItem("Price: " + i, Price)
-  console.log(searchHistoryPriceArr)
-}
-}
-saveToHistoryArr("TV", "20")
 
 var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 
@@ -63,7 +68,7 @@ var formSubmitHandler = function(event) {
 
 var getProduct = function(item) {
   // format the api url
-  var apiUrl = "https://api.bestbuy.com/v1/products(name=" + item + "*)?&format=json&show=name,salePrice&pageSize=1&apiKey=" + bestbuyApiKey;
+  var apiUrl = "https://api.bestbuy.com/v1/products(name=" + item + "*)?&format=json&show=name,salePrice&pageSize=3&apiKey=" + bestbuyApiKey;
 
   // make a get request to url
   fetch(apiUrl)
@@ -76,6 +81,7 @@ var getProduct = function(item) {
           var productName = data.products[0].name;
           var productPrice = data.products[0].salePrice;
          displayProduct(productName, productPrice);
+         updateArrays(productName, productPrice)
         });
       } else {
         alert("Error: " + response.statusText);
@@ -86,6 +92,11 @@ var getProduct = function(item) {
     });
 };
 
+var updateArrays = function(Item, Price){
+  searchHistoryItemArr.push(Item);
+  searchHistoryPriceArr.push(Price);
+  saveToHistoryArr();
+}
 
 var displayProduct = function(name,price) {
 
@@ -97,8 +108,7 @@ var displayProduct = function(name,price) {
     
     row.insertCell(0).innerHTML= name;
     row.insertCell(1).innerHTML= price;
-    row.insertCell(2).innerHTML= '<input type="button" value = "Add to list">' +  
-                                  '<input type="button" value = "Remove item" onClick="deleteRow(this)">';
+    row.insertCell(2).innerHTML= '<input type="button" value = "Remove item" onClick="deleteRow(this)">';
 }
 
 function deleteRow(obj) {
@@ -111,3 +121,4 @@ function deleteRow(obj) {
 
 
 itemInputE1.addEventListener("click", formSubmitHandler);
+getFromHistoryArr()
