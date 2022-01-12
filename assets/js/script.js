@@ -152,7 +152,7 @@ function loadMapScenario(lat, lon) {
 function addMapPushpin (arr) {
   var map = new Microsoft.Maps.Map("#myMap", {
     center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon)
-  })
+  });
   var length = arr.length;
   for (var i = 0; i < length; i++) {
     var lat = arr[i].lat;
