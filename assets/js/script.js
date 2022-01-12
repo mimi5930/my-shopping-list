@@ -99,7 +99,6 @@ var updateArrays = function(Item, Price){
 }
 
 var displayProduct = function(name,price) {
-
   var table = document.getElementById("myTableData");
  
    var rowCount = table.rows.length;
@@ -107,17 +106,14 @@ var displayProduct = function(name,price) {
 
     row.insertCell(0).innerHTML= name + '<br><input type="button" class="btn red darken-4" value = "Remove item" onClick="deleteRow(this)">';
     row.insertCell(1).innerHTML=  '$' + price;
-
 }
 
 function deleteRow(obj) {
-      
   var index = obj.parentNode.parentNode.rowIndex;
   var table = document.getElementById("myTableData");
   table.deleteRow(index);
   
 }
-
 
 itemInputE1.addEventListener("click", formSubmitHandler);
 getFromHistoryArr()
