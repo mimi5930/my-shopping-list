@@ -7,6 +7,7 @@ var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 var totalPriceE1 =document.querySelector('#total-price');
 var searchHistoryItemArr = []
 var searchHistoryPriceArr = []
+var map;
 
 // bestbuy api - request to find a departmentstores with area codes
 fetch("https://api.bestbuy.com/v1/products(name=iphone*)?show=salePrice&apiKey=Ou7MZjAsEdRGa1vhKpsui9Xg")
@@ -132,6 +133,11 @@ function deleteRow(obj) {
   var table = document.getElementById("myTableData");
   table.deleteRow(index);
   
+}
+
+
+function loadMapScenario() {
+  map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
 }
 
 
