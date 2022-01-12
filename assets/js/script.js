@@ -142,14 +142,16 @@ var testLon = -96.8001;
 // initial map load
 function loadMapScenario(lat, lon) {
   var map = new Microsoft.Maps.Map("#myMap", {
-    center: new Microsoft.Maps.Location(testLat, testLon) // update location to be the first best buy coordinates
+    // TODO: update location to be the first best buy coordinates
+    center: new Microsoft.Maps.Location(testLat, testLon)
   });
   var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(testLat, testLon), null);
   map.entities.push(pushpin);
 }
 
-// add pushpins and center map in a new location
+// add pushpins and center map to include them all
 function addMapPushpin (arr) {
+  // !Check favorites to find link in documentation to expand the view for all points
   var map = new Microsoft.Maps.Map("#myMap", {
     center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon)
   });
