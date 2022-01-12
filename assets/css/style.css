@@ -66,6 +66,10 @@ h3 {
     border-radius: var(--border-default);
 }
 
+#item-input label {
+    z-index: -1;
+}
+
 #item-button {
     margin-top: 15px;
 }
