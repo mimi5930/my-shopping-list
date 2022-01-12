@@ -7,7 +7,6 @@ var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 var totalPriceE1 =document.querySelector('#total-price');
 var searchHistoryItemArr = []
 var searchHistoryPriceArr = []
-var map;
 
 // bestbuy api - request to find a departmentstores with area codes
 fetch("https://api.bestbuy.com/v1/products(name=iphone*)?show=salePrice&apiKey=Ou7MZjAsEdRGa1vhKpsui9Xg")
@@ -135,11 +134,34 @@ function deleteRow(obj) {
   
 }
 
+// TODO: Insert Nate's coordinates into the Bing Maps API functions below
+// test variables
+var testLat = 46.9030;
+var testLon = -96.8001;
 
-function loadMapScenario() {
-  map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+// initial map load
+function loadMapScenario(lat, lon) {
+  var map = new Microsoft.Maps.Map("#myMap", {
+    center: new Microsoft.Maps.Location(testLat, testLon) // update location to be the first best buy coordinates
+  });
+  var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(testLat, testLon), null);
+  map.entities.push(pushpin);
 }
 
+// add pushpins and center map in a new location
+function addMapPushpin (arr) {
+  var map = new Microsoft.Maps.Map("#myMap", {
+    center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon)
+  })
+  var length = arr.length;
+  for (var i = 0; i < length; i++) {
+    var lat = arr[i].lat;
+    var lon = arr[i].lon;
+    var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat, lon), null);
+    map.entities.push(pushpin);
+  }
+}
 
+// event listeners
 itemInputE1.addEventListener("click", formSubmitHandler);
 getFromHistoryArr();
