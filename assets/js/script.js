@@ -32,10 +32,13 @@ var getFromHistoryArr = function(){
     searchHistoryPriceArr.push(localPrice[i])
     searchHistoryItemArr.push(localItem[i])
   }
+  var totalPrice = 0;
   for(i = 0; i < searchHistoryPriceArr.length; i++){
     var price = searchHistoryPriceArr[i];
     var name = searchHistoryItemArr[i];
     displayProduct(name,price)
+    totalPrice += price;
+    totalPriceE1.textContent = ' $' + totalPrice;
   }
 }
 // function that adds Item and Price to their arrays and then adds them to the local storage
@@ -48,6 +51,7 @@ var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 
 var itemInputE1 = document.querySelector("#item-input");
 var itemNameE1 = document.querySelector("#item-text");
+var totalPriceE1 =document.querySelector('#total-price');
 
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
@@ -95,6 +99,15 @@ var getProduct = function(item) {
 var updateArrays = function(Item, Price){
   searchHistoryItemArr.push(Item);
   searchHistoryPriceArr.push(Price);
+  
+
+  var totalPrice = 0;
+  for(i = 0; i < searchHistoryPriceArr.length; i++){
+  
+    totalPrice += searchHistoryPriceArr[i];
+    totalPriceE1.textContent = ' $' + totalPrice;
+    
+  }
   saveToHistoryArr();
 }
 
