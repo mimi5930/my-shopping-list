@@ -84,6 +84,10 @@ h3 {
     overflow: auto;
 }
 
+.search-table {
+    margin-bottom: 20px;
+}
+
 table,
 th,
 td {
@@ -116,6 +120,7 @@ td {
     padding: 1px;
     border-bottom-left-radius: var(--border-default);
     border-bottom-right-radius: var(--border-default);
+    min-width: 234.2px;
 }
 
 /* Output Style End */

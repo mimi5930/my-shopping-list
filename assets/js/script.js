@@ -104,11 +104,10 @@ var displayProduct = function(name,price) {
  
    var rowCount = table.rows.length;
    var row = table.insertRow(rowCount);
- 
-    
-    row.insertCell(0).innerHTML= name;
-    row.insertCell(1).innerHTML= price;
-    row.insertCell(2).innerHTML= '<input type="button" value = "Remove item" onClick="deleteRow(this)">';
+
+    row.insertCell(0).innerHTML= name + '<br><input type="button" class="btn red darken-4" value = "Remove item" onClick="deleteRow(this)">';
+    row.insertCell(1).innerHTML=  '$' + price;
+
 }
 
 function deleteRow(obj) {
