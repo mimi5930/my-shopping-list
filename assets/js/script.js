@@ -131,6 +131,28 @@ function deleteRow(obj) {
   
 }
 
+// Modal asking users if they want to delete an item
+
+<script
+// Get the modal
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+
 
 itemInputE1.addEventListener("click", formSubmitHandler);
 getFromHistoryArr()
