@@ -137,24 +137,9 @@ td {
 }
 
 .map {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 56.25%;
-    margin-bottom: 15px;
-}
-
-/* !Eventually replace this with BingMaps API */
-iframe {
-    border: 10px solid var(--secondary-color);
-    border-radius: var(--border-default);
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%
+    border: var(--secondary-color) 10px solid;
+    margin: 10px;
+    margin-bottom: 25px;
 }
 
 /* City Search Style End */
