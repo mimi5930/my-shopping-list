@@ -1,6 +1,13 @@
 //
+var itemInputE1 = document.querySelector("#item-input");
+var itemNameE1 = document.querySelector("#item-text");
+
+var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
+
+var totalPriceE1 =document.querySelector('#total-price');
 var searchHistoryItemArr = []
 var searchHistoryPriceArr = []
+
 // bestbuy api - request to find a departmentstores with area codes
 fetch("https://api.bestbuy.com/v1/products(name=iphone*)?show=salePrice&apiKey=Ou7MZjAsEdRGa1vhKpsui9Xg")
  .then(function(response) {
@@ -47,11 +54,7 @@ var saveToHistoryArr = function(){
   localStorage.setItem("Price History", JSON.stringify(searchHistoryPriceArr)) 
 }
 
-var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 
-var itemInputE1 = document.querySelector("#item-input");
-var itemNameE1 = document.querySelector("#item-text");
-var totalPriceE1 =document.querySelector('#total-price');
 
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
@@ -133,4 +136,4 @@ function deleteRow(obj) {
 
 
 itemInputE1.addEventListener("click", formSubmitHandler);
-getFromHistoryArr()
+getFromHistoryArr();
