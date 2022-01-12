@@ -19,4 +19,4 @@ https://mimi5930.github.io/my-shopping-list/
 (screenshot)
 
 # Authors
-Yasemin Akturk, Robel Gebremeskel, Nate Heurd, Mike Miller, Cameron Nelson. 
+Yasemin Akturk, Robel Gebremeskel, Nate Huerd, Mike Miller, Cameron Nelson. 
