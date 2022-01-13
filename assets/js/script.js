@@ -182,16 +182,15 @@ function addMapPushpin (arr) {
   }
   console.log(locationRange);
 
-  return;
   // !Check favorites to find link in documentation to expand the view for all points
   var map = new Microsoft.Maps.Map("#myMap", {
-    center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon)
+    center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon) // new Microsoft.Maps.fromLocations(locationRange)
   });
-  var length = arr.length;
-  for (var i = 0; i < length; i++) {
+  for (var i = 0; i < arrLength; i++) {
     var lat = arr[i].lat;
     var lon = arr[i].lon;
-    var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat, lon), null);
+    var title = arr[i].type;
+    var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat, lon), {title: title});
     map.entities.push(pushpin);
   }
 }
