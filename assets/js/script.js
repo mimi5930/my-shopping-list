@@ -12,30 +12,43 @@ var searchHistoryPriceArr = []
 var locationDataArr = []
 
 var getLoc = function() {
-console.log("function ran");
-var search = zipNameEl.value;
-if (search == "") {
-  return;
-}
-console.log("somethign's in there");
+  console.log("function ran");
+  var search = zipNameEl.value;
+  if (search === "") {
+    return;
+  }
 
-//replace 55423 with user input zip code
- var bestbuyapiUrl = "https://api.bestbuy.com/v1/stores(area(" + search + ",50))?&format=json&show=storeId,storeType,lat,lng,distance&apiKey=" + bestbuyApiKey;
+  var bestbuyapiUrl = "https://api.bestbuy.com/v1/stores(area(" + search + ",50))?&format=json&show=storeId,storeType,lat,lng,distance&apiKey=" + bestbuyApiKey;
 
-fetch(bestbuyapiUrl)
-    .then(function(response) {
-      if (response.ok) {
-        console.log(response);
-        response.json().then(function(data) {
-          console.log(data);
-          length = data.stores.length;
-          for (var i = 0; i < length; i++) {
-            console.log(data.stores[i].storeType);
-          }
-        });
-      };
-    }
-  );
+  fetch(bestbuyapiUrl)
+      .then(function(response) {
+        if (response.ok) {
+          console.log(response);
+          response.json().then(function(data) {
+            console.log(data);
+            length = data.stores.length;
+            for (var i = 0; i < length; i++) {
+              var lat = data.stores[i].lat;
+              var lon = data.stores[i].lng;
+              var storeType = data.stores[i].storeType;
+              if (!storeType) {
+                storeType = "";
+              }
+              else if (storeType === "Big Box") {
+                storeType = "Best Buy";
+              }
+              var storeInfo = {
+                type: storeType,
+                lat: lat,
+                lon: lon,
+              }
+              console.log(storeInfo);
+              locationDataArr.push(storeInfo);
+            }
+          });
+        };
+      }
+    );
 };
 
 var saveToLocationDataArr = function(){
