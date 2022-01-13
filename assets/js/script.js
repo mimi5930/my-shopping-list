@@ -32,10 +32,12 @@ var getLoc = function() {
     );
 };
 
+// change the text to display searched zip code
 var changeZipText = function(text) {
   zipNameDisplayEl.textContent = text;
 }
 
+// create array from store locations data
 var createLocationArr = function(data) {
   var locationDataArr = [];
   length = data.stores.length;
@@ -43,12 +45,14 @@ var createLocationArr = function(data) {
     var lat = data.stores[i].lat;
     var lon = data.stores[i].lng;
     var storeType = data.stores[i].storeType;
+    // make store name more user-friendly
     if (!storeType) {
-      storeType = "";
+      storeType = "Best Buy Outlet";
     }
     else if (storeType === "Big Box") {
       storeType = "Best Buy";
     }
+    // creates an object with relevant data
     var storeInfo = {
       type: storeType,
       lat: lat,
@@ -179,7 +183,6 @@ function loadMapScenario() {
 
 // add pushpins and center map to include them all
 function addMapPushpin (arr) {
-  console.log(arr);
   // make new array of just the coordinates for bing api to center
   locationRange = [];
   arrLength = arr.length;
@@ -190,6 +193,7 @@ function addMapPushpin (arr) {
     locationRange.push(currentLoc);
   }
 
+  // find center coordinates from array of locations
   var rect = Microsoft.Maps.LocationRect.fromLocations(locationRange);
 
   // create new map based on coordinates entered
@@ -197,6 +201,7 @@ function addMapPushpin (arr) {
     bounds: rect,
     padding: 80
   });
+  // add pushpins for nearest best buys
   for (var i = 0; i < arrLength; i++) {
     var lat = arr[i].lat;
     var lon = arr[i].lon;
