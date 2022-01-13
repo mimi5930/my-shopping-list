@@ -1,6 +1,7 @@
-//
 var itemInputE1 = document.querySelector("#item-input");
 var itemNameE1 = document.querySelector("#item-text");
+var zipInputEl = document.querySelector("#zip-button");
+var zipNameEl = document.querySelector("#zip-text");
 
 var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 
@@ -11,15 +12,26 @@ var searchHistoryPriceArr = []
 var locationDataArr = []
 
 var getLoc = function() {
-  //replace 55423 with user input zip code
-  var bestbuyapiUrl = "https://api.bestbuy.com/v1/stores(area(55423,50))?&format=json&show=storeId,storeType,lat,lng,distance&apiKey=" + bestbuyApiKey;
+console.log("function ran");
+var search = zipNameEl.value;
+if (search == "") {
+  return;
+}
+console.log("somethign's in there");
 
-  fetch(bestbuyapiUrl)
+//replace 55423 with user input zip code
+ var bestbuyapiUrl = "https://api.bestbuy.com/v1/stores(area(" + search + ",50))?&format=json&show=storeId,storeType,lat,lng,distance&apiKey=" + bestbuyApiKey;
+
+fetch(bestbuyapiUrl)
     .then(function(response) {
       if (response.ok) {
         console.log(response);
         response.json().then(function(data) {
           console.log(data);
+          length = data.stores.length;
+          for (var i = 0; i < length; i++) {
+            console.log(data.stores[i].storeType);
+          }
         });
       };
     }
@@ -139,7 +151,6 @@ function loadMapScenario() {
   var placeholderLat = 44.86326725347792;
   var placeholderLon = -93.29279234302264;
   var map = new Microsoft.Maps.Map("#myMap", {
-    // TODO: update location to be the first best buy coordinates
     center: new Microsoft.Maps.Location(placeholderLat, placeholderLon)
   });
   var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(44.86326725347792, -93.29279234302264), {title: "Best Buy"});
@@ -162,5 +173,6 @@ function addMapPushpin (arr) {
 }
 
 // event listeners
+zipInputEl.addEventListener("click", getLoc);
 itemInputE1.addEventListener("click", formSubmitHandler);
 getFromHistoryArr();
