@@ -30,7 +30,7 @@ var getLoc = function() {
 };
 
 var createLocationArr = function(data) {
-  var locationDataArr = []
+  var locationDataArr = [];
   length = data.stores.length;
   for (var i = 0; i < length; i++) {
     var lat = data.stores[i].lat;
@@ -48,9 +48,8 @@ var createLocationArr = function(data) {
       lon: lon,
     }
     locationDataArr.push(storeInfo);
-    addMapPushpin(locationDataArr);
   }
-
+  addMapPushpin(locationDataArr);
 }
 
 var saveToLocationDataArr = function(){
@@ -160,7 +159,6 @@ function deleteRow(obj) {
   
 }
 
-// TODO: Insert Nate's coordinates into the Bing Maps API functions below
 // initial map load
 function loadMapScenario() {
   var placeholderLat = 44.86326725347792;
@@ -174,6 +172,17 @@ function loadMapScenario() {
 
 // add pushpins and center map to include them all
 function addMapPushpin (arr) {
+  console.log(arr);
+  // make new array of just the coordinates for bing api to center
+  locationRange = [];
+  arrLength = arr.length;
+  for (var i = 0; i < arrLength; i++) {
+    var latLon = arr[i].lat + " " + arr[i].lon;
+    locationRange.push(latLon);
+  }
+  console.log(locationRange);
+
+  return;
   // !Check favorites to find link in documentation to expand the view for all points
   var map = new Microsoft.Maps.Map("#myMap", {
     center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon)
