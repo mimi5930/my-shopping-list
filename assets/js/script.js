@@ -134,15 +134,13 @@ function deleteRow(obj) {
 }
 
 // TODO: Insert Nate's coordinates into the Bing Maps API functions below
-// test variables
-var testLat = 44.86326725347792;
-var testLon = -93.29279234302264;
-
 // initial map load
-function loadMapScenario(lat, lon) {
+function loadMapScenario() {
+  var placeholderLat = 44.86326725347792;
+  var placeholderLon = -93.29279234302264;
   var map = new Microsoft.Maps.Map("#myMap", {
     // TODO: update location to be the first best buy coordinates
-    center: new Microsoft.Maps.Location(testLat, testLon)
+    center: new Microsoft.Maps.Location(placeholderLat, placeholderLon)
   });
   var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(44.86326725347792, -93.29279234302264), {title: "Best Buy"});
   map.entities.push(pushpin);
