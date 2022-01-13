@@ -184,7 +184,8 @@ function addMapPushpin (arr) {
 
   // !Check favorites to find link in documentation to expand the view for all points
   var map = new Microsoft.Maps.Map("#myMap", {
-    center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon) // new Microsoft.Maps.fromLocations(locationRange)
+    center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon), // new Microsoft.Maps.fromLocations(locationRange)
+    zoom: 10
   });
   for (var i = 0; i < arrLength; i++) {
     var lat = arr[i].lat;
