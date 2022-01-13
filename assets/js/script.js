@@ -184,15 +184,18 @@ function addMapPushpin (arr) {
   locationRange = [];
   arrLength = arr.length;
   for (var i = 0; i < arrLength; i++) {
-    var latLon = arr[i].lat + " " + arr[i].lon;
-    locationRange.push(latLon);
+    var lat = arr[i].lat;
+    var lon = arr[i].lon;
+    var currentLoc = new Microsoft.Maps.Location(lat, lon);
+    locationRange.push(currentLoc);
   }
-  console.log(locationRange);
+
+  var rect = Microsoft.Maps.LocationRect.fromLocations(locationRange);
 
   // create new map based on coordinates entered
   var map = new Microsoft.Maps.Map("#myMap", {
-    center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon), // new Microsoft.Maps.fromLocations(locationRange)
-    zoom: 10
+    bounds: rect,
+    padding: 80
   });
   for (var i = 0; i < arrLength; i++) {
     var lat = arr[i].lat;
