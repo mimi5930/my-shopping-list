@@ -90,8 +90,6 @@ var saveToHistoryArr = function(){
   localStorage.setItem("Price History", JSON.stringify(searchHistoryPriceArr)) 
 }
 
-
-
 var formSubmitHandler = function(event) {
   // prevent page from refreshing
   event.preventDefault();
@@ -123,8 +121,8 @@ var getProduct = function(item) {
           console.log(data);
           var productName = data.products[0].name;
           var productPrice = data.products[0].salePrice;
-         displayProduct(productName, productPrice);
-         updateArrays(productName, productPrice)
+          displayProduct(productName, productPrice);
+          updateArrays(productName, productPrice)
         });
       } else {
         alert("Error: " + response.statusText);
@@ -133,6 +131,7 @@ var getProduct = function(item) {
     .catch(function(error) {
       alert("Unable to connect to bestbuy");
     });
+
 };
 
 var updateArrays = function(Item, Price){
@@ -153,9 +152,10 @@ var updateArrays = function(Item, Price){
 var displayProduct = function(name,price) {
 
   var table = document.getElementById("myTableData");
- 
-   var rowCount = table.rows.length;
-   var row = table.insertRow(rowCount);
+
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
 
     row.insertCell(0).innerHTML= name + '<br><input type="button" class="btn red darken-4" value = "Remove item" onClick="deleteRow(this)">';
     row.insertCell(1).innerHTML=  '$' + price;
