@@ -55,21 +55,17 @@
                 <div class="city-search">
                     <form class="input-field" id="city-input">
                         <i class="material-icons prefix">map</i>
-                        <label for="city-text">Enter City:</label>
-                        <input type="text" name="city-text" id="city-text" placeholder="Minneapolis">
+                        <label for="zip-text">Enter Zip Code:</label>
+                        <input type="text" name="zip-text" id="zip-text" placeholder="55423">
+                        <a id="zip-button" class="waves-effect waves-light btn blue darken-4">Search</a>
                     </form>
                     <h3>
-                        Nearest Store To 
-                        <span class="city-name">Minneapolis</span>:<!-- Add city text's value in place of Minneapolis -->
+                        Nearest Stores To 
+                        <span class="city-name">55423</span>:<!-- Add city text's value in place of 55423 -->
                     </h3>
                 </div>
-                <div class="map"> <!-- !iframe is just a placeholder for now! -->
-                    <iframe class="" width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=45.01069048526523~-93.23169708251953&lvl=12&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
-                    </iframe>
-                    <div style="margin: auto; white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
-                        <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=45.01069048526523~-93.23169708251953&amp;sty=r&amp;lvl=12&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
-                        <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=45.01069048526523~-93.23169708251953&amp;sty=r&amp;lvl=12&amp;rtp=~pos.45.01069048526523_-93.23169708251953____&amp;FORM=MBEDLD">Get Directions</a>
-                    </div>
+                <div class="map">
+                    <div id='myMap' style='width: auto; height: 500px;'></div>
                 </div>
             </div>
       </div>
@@ -78,8 +74,9 @@
             <h1 class="footer-title">Thank you for visiting our site! See you soon.</h1>
         </footer>
         <!--JavaScript at end of body for optimized loading-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AlhvFsP11Bn7teegeVUFvdrw312hORJoNPDjnSGs5qZk5S9lwrAspUQw5wk9wi9I&callback=loadMapScenario' async defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
         <script src="./assets/js/script.js"></script>
 
     </body>
