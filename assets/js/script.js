@@ -9,8 +9,6 @@ var totalPriceE1 =document.querySelector('#total-price');
 var searchHistoryItemArr = []
 var searchHistoryPriceArr = []
 
-var locationDataArr = []
-
 var getLoc = function() {
   console.log("function ran");
   var search = zipNameEl.value;
@@ -32,6 +30,7 @@ var getLoc = function() {
 };
 
 var createLocationArr = function(data) {
+  var locationDataArr = []
   length = data.stores.length;
   for (var i = 0; i < length; i++) {
     var lat = data.stores[i].lat;
@@ -49,7 +48,9 @@ var createLocationArr = function(data) {
       lon: lon,
     }
     locationDataArr.push(storeInfo);
+    addMapPushpin(locationDataArr);
   }
+
 }
 
 var saveToLocationDataArr = function(){
