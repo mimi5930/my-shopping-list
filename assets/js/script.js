@@ -24,29 +24,33 @@ var getLoc = function() {
       .then(function(response) {
         if (response.ok) {
           response.json().then(function(data) {
-            length = data.stores.length;
-            for (var i = 0; i < length; i++) {
-              var lat = data.stores[i].lat;
-              var lon = data.stores[i].lng;
-              var storeType = data.stores[i].storeType;
-              if (!storeType) {
-                storeType = "";
-              }
-              else if (storeType === "Big Box") {
-                storeType = "Best Buy";
-              }
-              var storeInfo = {
-                type: storeType,
-                lat: lat,
-                lon: lon,
-              }
-              locationDataArr.push(storeInfo);
-            }
+            createLocationArr(data);
           });
         };
       }
     );
 };
+
+var createLocationArr = function(data) {
+  length = data.stores.length;
+  for (var i = 0; i < length; i++) {
+    var lat = data.stores[i].lat;
+    var lon = data.stores[i].lng;
+    var storeType = data.stores[i].storeType;
+    if (!storeType) {
+      storeType = "";
+    }
+    else if (storeType === "Big Box") {
+      storeType = "Best Buy";
+    }
+    var storeInfo = {
+      type: storeType,
+      lat: lat,
+      lon: lon,
+    }
+    locationDataArr.push(storeInfo);
+  }
+}
 
 var saveToLocationDataArr = function(){
   localStorage.setItem("Location Lat", JSON.stringify(locationDataArr))
