@@ -1,0 +1,168 @@
+/* Universal Styling Start */
+:root {
+    /* !In materialize: class = blue darken-4 */
+    --primary-color: #0d47a1;
+    /* !In materialize: class = blue darken-1 */
+    --secondary-color: #1e88e5;
+    /* !In materialize: class = white  */
+    --tertiary-color: #ffffff;
+    --border-default: 15px; 
+}
+
+* {
+    font-family: 'M PLUS Rounded 1c', sans-serif;;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Universal Styling End */
+
+/* General Styling Start */
+
+h1 {
+    color: var(--tertiary-color);
+    text-align: center;
+    text-shadow: 0 0 1px black;
+    font-size: 50px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 35px;
+}
+
+h3 {
+    color: var(--primary-color);
+    font-size: 30px;
+}
+
+/* General Styling End */
+
+
+/* Header Style Start */
+
+.title {
+    background: var(--primary-color);
+    
+}
+
+.title h1 {
+    margin: 0px;
+    padding: 60px;
+}
+
+/* Header Style End */
+
+/* Search Style Start */
+
+.search {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-default);
+}
+
+#item-input label {
+    z-index: -1;
+}
+
+#item-button {
+    margin-top: 15px;
+}
+/* Search Style End */
+
+/* Output Style Start */
+
+.item-info {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-default);
+    padding: 50px 25px;
+    overflow: auto;
+}
+
+.search-table {
+    margin-bottom: 20px;
+}
+
+table,
+th,
+td {
+    color: var(--tertiary-color);
+    margin-top: 20px;
+    padding: 20px;
+    border: 2.5px solid var(--tertiary-color);
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--primary-color);
+    font-size: 30px;
+}
+
+td {
+    font-size: 20px;
+}
+
+.total {
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.total-container {
+    background-color: var(--tertiary-color);
+    padding: 1px;
+    border-bottom-left-radius: var(--border-default);
+    border-bottom-right-radius: var(--border-default);
+    min-width: 234.2px;
+}
+
+/* Output Style End */
+
+/* City Search Style Begin */
+
+.city-map-container {
+    background-color: var(--tertiary-color);
+    border-radius: var(--border-default);
+}
+
+.city-name {
+    font-weight: bold;
+}
+
+.map {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+    margin-bottom: 15px;
+}
+
+/* !Eventually replace this with BingMaps API */
+iframe {
+    border: 10px solid var(--secondary-color);
+    border-radius: var(--border-default);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%
+}
+
+/* City Search Style End */
+
+/* Footer Style Start */
+
+.footer-title {
+    color: var(--tertiary-color);
+    padding-bottom: 50px;
+
+}
