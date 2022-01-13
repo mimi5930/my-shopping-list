@@ -23,9 +23,7 @@ var getLoc = function() {
   fetch(bestbuyapiUrl)
       .then(function(response) {
         if (response.ok) {
-          console.log(response);
           response.json().then(function(data) {
-            console.log(data);
             length = data.stores.length;
             for (var i = 0; i < length; i++) {
               var lat = data.stores[i].lat;
@@ -42,7 +40,6 @@ var getLoc = function() {
                 lat: lat,
                 lon: lon,
               }
-              console.log(storeInfo);
               locationDataArr.push(storeInfo);
             }
           });
