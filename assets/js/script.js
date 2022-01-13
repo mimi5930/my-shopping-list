@@ -182,7 +182,6 @@ function addMapPushpin (arr) {
   }
   console.log(locationRange);
 
-  // !Check favorites to find link in documentation to expand the view for all points
   var map = new Microsoft.Maps.Map("#myMap", {
     center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon), // new Microsoft.Maps.fromLocations(locationRange)
     zoom: 10
