@@ -116,7 +116,7 @@ var updateArrays = function(Item, Price){
 
   for(i = 0; i < searchHistoryPriceArr.length; i++){
     totalPrice += searchHistoryPriceArr[i];
-    totalPriceE1.textContent = ' $' + totalPrice;
+    totalPriceE1.textContent = ' $' + Math.round(totalPrice * 100) /100;
   }
   if (!searchHistoryPriceArr[0]){
     totalPriceE1.textContent = ''
