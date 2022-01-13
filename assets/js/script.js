@@ -2,6 +2,7 @@ var itemInputE1 = document.querySelector("#item-input");
 var itemNameE1 = document.querySelector("#item-text");
 var zipInputEl = document.querySelector("#zip-button");
 var zipNameEl = document.querySelector("#zip-text");
+var zipNameDisplayEl = document.querySelector(".city-name");
 
 var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 
@@ -10,11 +11,13 @@ var searchHistoryItemArr = []
 var searchHistoryPriceArr = []
 
 var getLoc = function() {
-  console.log("function ran");
   var search = zipNameEl.value;
   if (search === "") {
     return;
   }
+
+  // update text to entered zip code
+  changeZipText(search);
 
   var bestbuyapiUrl = "https://api.bestbuy.com/v1/stores(area(" + search + ",50))?&format=json&show=storeId,storeType,lat,lng,distance&apiKey=" + bestbuyApiKey;
 
@@ -28,6 +31,10 @@ var getLoc = function() {
       }
     );
 };
+
+var changeZipText = function(text) {
+  zipNameDisplayEl.textContent = text;
+}
 
 var createLocationArr = function(data) {
   var locationDataArr = [];
@@ -182,6 +189,7 @@ function addMapPushpin (arr) {
   }
   console.log(locationRange);
 
+  // create new map based on coordinates entered
   var map = new Microsoft.Maps.Map("#myMap", {
     center: new Microsoft.Maps.Location(arr[0].lat, arr[0].lon), // new Microsoft.Maps.fromLocations(locationRange)
     zoom: 10
