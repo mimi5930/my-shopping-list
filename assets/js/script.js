@@ -156,7 +156,9 @@ var updateArrays = function(Item, Price){
 
   for(i = 0; i < searchHistoryPriceArr.length; i++){
     totalPrice += searchHistoryPriceArr[i];
+    
     totalPriceE1.textContent = ' $' + Math.round(totalPrice * 100) /100;
+
   }
   if (!searchHistoryPriceArr[0]){
     totalPriceE1.textContent = ''
@@ -184,7 +186,6 @@ function deleteRow(obj) {
   console.log(price)
   deleteItem(price)
 }
-
 // Modal asking users if they want to delete an item
 // Get the modal
 var modal = document.getElementById("myModal");
