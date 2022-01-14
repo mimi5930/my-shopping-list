@@ -222,10 +222,20 @@ function addMapPushpin (arr) {
   var rect = Microsoft.Maps.LocationRect.fromLocations(locationRange);
 
   // create new map based on coordinates entered
-  var map = new Microsoft.Maps.Map("#myMap", {
+  if (arrLength > 1) {
+    var map = new Microsoft.Maps.Map("#myMap", {
     bounds: rect,
     padding: 80
   });
+  // if only one location is returned
+  } else {
+    var lat = arr[0].lat;
+    var lon = arr[0].lon;
+    var map = new Microsoft.Maps.Map("#myMap", {
+      center: new Microsoft.Maps.Location(lat, lon)
+    });
+  };
+
   // add pushpins for nearest best buys
   for (var i = 0; i < arrLength; i++) {
     var lat = arr[i].lat;
