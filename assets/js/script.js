@@ -173,7 +173,7 @@ function deleteRow(obj) {
 
 // Modal asking users if they want to delete an item
 
-<script
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -192,7 +192,7 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-
+}
 
 // initial map load
 function loadMapScenario() {
