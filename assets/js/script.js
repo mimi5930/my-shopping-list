@@ -184,6 +184,27 @@ function deleteRow(obj) {
   console.log(price)
   deleteItem(price)
 }
+
+// Modal asking users if they want to delete an item
+// Get the modal
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+
 // initial map load
 function loadMapScenario() {
   var placeholderLat = 44.86326725347792;
