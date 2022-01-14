@@ -121,8 +121,10 @@ var getProduct = function(item) {
           console.log(data);
           var productName = data.products[0].name;
           var productPrice = data.products[0].salePrice;
+
           displayProduct(productName, productPrice);
           updateArrays(productName, productPrice)
+          
         });
       } else {
         alert("Error: " + response.statusText);
@@ -133,24 +135,38 @@ var getProduct = function(item) {
     });
 
 };
-
+var deleteItem = function(Price) {
+    var index = searchHistoryPriceArr.indexOf(Price)
+    console.log(index)
+    if(index > -1){
+      searchHistoryPriceArr = searchHistoryPriceArr.splice(index +1)
+      searchHistoryItemArr =  searchHistoryItemArr.splice(index +1)
+    }
+    console.log(searchHistoryItemArr)
+    console.log(searchHistoryPriceArr)
+    updateArrays()
+}
 var updateArrays = function(Item, Price){
+  if(Item, Price){
   searchHistoryItemArr.push(Item);
   searchHistoryPriceArr.push(Price);
-  
+  }
 
   var totalPrice = 0;
+
   for(i = 0; i < searchHistoryPriceArr.length; i++){
-  
     totalPrice += searchHistoryPriceArr[i];
-    totalPriceE1.textContent = ' $' + totalPrice;
     
+    totalPriceE1.textContent = ' $' + Math.round(totalPrice * 100) /100;
+
+  }
+  if (!searchHistoryPriceArr[0]){
+    totalPriceE1.textContent = ''
   }
   saveToHistoryArr();
 }
 
 var displayProduct = function(name,price) {
-
   var table = document.getElementById("myTableData");
 
     var rowCount = table.rows.length;
@@ -159,20 +175,18 @@ var displayProduct = function(name,price) {
 
     row.insertCell(0).innerHTML= name + '<br><input type="button" class="btn red darken-4" value = "Remove item" onClick="deleteRow(this)">';
     row.insertCell(1).innerHTML=  '$' + price;
-
 }
 
 function deleteRow(obj) {
-      
   var index = obj.parentNode.parentNode.rowIndex;
   var table = document.getElementById("myTableData");
   table.deleteRow(index);
-  
+  var itemPrice = obj.parentNode.parentNode.getElementsByTagName("td")[1]
+  var price = parseFloat(itemPrice.textContent.replace(/\$|,/g, ''))
+  console.log(price)
+  deleteItem(price)
 }
-
-
 // Modal asking users if they want to delete an item
-
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -180,19 +194,6 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 
 var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-span.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 // initial map load
 function loadMapScenario() {
@@ -238,4 +239,4 @@ function addMapPushpin (arr) {
 // event listeners
 zipInputEl.addEventListener("click", getLoc);
 itemInputE1.addEventListener("click", formSubmitHandler);
-getFromHistoryArr()
+getFromHistoryArr();
