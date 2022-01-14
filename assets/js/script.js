@@ -121,8 +121,10 @@ var getProduct = function(item) {
           console.log(data);
           var productName = data.products[0].name;
           var productPrice = data.products[0].salePrice;
+
           displayProduct(productName, productPrice);
           updateArrays(productName, productPrice)
+          
         });
       } else {
         alert("Error: " + response.statusText);
@@ -154,7 +156,9 @@ var updateArrays = function(Item, Price){
 
   for(i = 0; i < searchHistoryPriceArr.length; i++){
     totalPrice += searchHistoryPriceArr[i];
-    totalPriceE1.textContent = ' $' + totalPrice;
+    
+    totalPriceE1.textContent = ' $' + Math.round(totalPrice * 100) /100;
+
   }
   if (!searchHistoryPriceArr[0]){
     totalPriceE1.textContent = ''
@@ -183,8 +187,6 @@ function deleteRow(obj) {
   deleteItem(price)
 }
 // Modal asking users if they want to delete an item
-
-<script
 // Get the modal
 var modal = document.getElementById("myModal");
 
