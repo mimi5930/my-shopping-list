@@ -81,7 +81,7 @@ var getFromHistoryArr = function(){
     var name = searchHistoryItemArr[i];
     displayProduct(name,price)
     totalPrice += price;
-    totalPriceE1.textContent = ' $' + totalPrice;
+    totalPriceE1.textContent = ' $' + totalPrice.toFixed(2);
   }
 }
 // function that adds Item and Price to their arrays and then adds them to the local storage
@@ -157,7 +157,7 @@ var updateArrays = function(Item, Price){
   for(i = 0; i < searchHistoryPriceArr.length; i++){
     totalPrice += searchHistoryPriceArr[i];
     
-    totalPriceE1.textContent = ' $' + Math.round(totalPrice * 100) /100;
+    totalPriceE1.textContent = ' $' + totalPrice.toFixed(2);
 
   }
   if (!searchHistoryPriceArr[0]){
