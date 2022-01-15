@@ -2,7 +2,7 @@ var itemInputE1 = document.querySelector("#item-input");
 var itemNameE1 = document.querySelector("#item-text");
 var zipInputEl = document.querySelector("#zip-button");
 var zipNameEl = document.querySelector("#zip-text");
-var zipNameDisplayEl = document.querySelector(".city-name");
+var zipNameDisplayEl = document.querySelector(".zip-name");
 
 var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 

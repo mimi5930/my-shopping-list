@@ -125,14 +125,14 @@ td {
 
 /* Output Style End */
 
-/* City Search Style Begin */
+/* Zipcode Search Style Begin */
 
-.city-map-container {
+.zipcode-map-container {
     background-color: var(--tertiary-color);
     border-radius: var(--border-default);
 }
 
-.city-name {
+.zip-name {
     font-weight: bold;
 }
 
@@ -142,7 +142,7 @@ td {
     margin-bottom: 25px;
 }
 
-/* City Search Style End */
+/* Zipcode Search Style End */
 
 /* Footer Style Start */
 
