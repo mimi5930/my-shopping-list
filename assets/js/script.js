@@ -240,12 +240,12 @@ $("#zip-text").on("keypress", function(event) {
     event.preventDefault();
     getLoc();
   }
-})
+});
 itemInputE1.addEventListener("click", formSubmitHandler);
-getFromHistoryArr();
 $("#item-text").on("keypress", function(event) {
   if (event.which == 13) {
     event.preventDefault();
     formSubmitHandler();
   }
-})
+});
+getFromHistoryArr();
