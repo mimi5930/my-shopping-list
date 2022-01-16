@@ -3,6 +3,7 @@ var itemNameE1 = document.querySelector("#item-text");
 var zipInputEl = document.querySelector("#zip-button");
 var zipNameEl = document.querySelector("#zip-text");
 var zipNameDisplayEl = document.querySelector(".zip-name");
+var modalContainerE1 = document.querySelector(".modal")
 
 var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 
@@ -128,10 +129,22 @@ var getProduct = function(item) {
       }
     })
     .catch(function(error) {
-      alert("Unable to connect to bestbuy");
+      // Handle error for bad request
+      function myMessage() {
+        M.toast({
+          html:'Invalid Item, Please Enter item again',
+          classes:'blue darken-4',
+          displayLength:1500,
+          InDuration: 2000,
+          outDuration: 3000
+        });
+          
+      }
+      myMessage();
     });
 
 };
+
 var deleteItem = function(Price) {
     var index = searchHistoryPriceArr.indexOf(Price)
     console.log(index)
@@ -143,6 +156,7 @@ var deleteItem = function(Price) {
     console.log(searchHistoryPriceArr)
     updateArrays()
 }
+
 var updateArrays = function(Item, Price){
   if(Item, Price){
   searchHistoryItemArr.push(Item);
@@ -169,28 +183,45 @@ var displayProduct = function(name,price) {
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
 
-
-    row.insertCell(0).innerHTML= name + '<br><input type="button" class="btn red darken-4" value = "Remove item" onClick="deleteRow(this)">';
+    row.insertCell(0).innerHTML= name + '<br><input type="button" data-target="modal1" class="btn red darken-4 modal-trigger" value = "Remove item" onClick=deleteRow(this)>';
     row.insertCell(1).innerHTML=  '$' + price;
 }
 
+
+//Function to delete rows
 function deleteRow(obj) {
   var index = obj.parentNode.parentNode.rowIndex;
-  var table = document.getElementById("myTableData");
-  table.deleteRow(index);
+  var table = document.getElementById("myTableData");  
   var itemPrice = obj.parentNode.parentNode.getElementsByTagName("td")[1]
   var price = parseFloat(itemPrice.textContent.replace(/\$|,/g, ''))
-  console.log(price)
-  deleteItem(price)
+
+
+  var modalContent = '<div class="modal-content"><h4>Delete Item</h4><p>Do you want to delete this item from your shopping list?</p>'+
+                '</div><div class="modal-footer">'+
+                '<div class="modal-footer">'+
+                '<a href="#!" id="modal1_noBtn" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>'+
+                '<a href="#!" id="modal1_yesBtn" class="modal-action modal-close waves-effect waves-green btn-flat">Yes</a></div>';
+  
+  $('.modal').append(modalContent);
+  $('.modal').modal({ dismissible: false});
+
+  //cancel button modal click event
+  $('#modal1_noBtn').click(() => { 
+    $('#modal1').modal('close');
+    modalContainerE1.textContent = "";
+  });
+
+  //yes button modal click event
+  $('#modal1_yesBtn').click(() => {
+
+    $('#modal1').modal('close');
+    table.deleteRow(index);
+    console.log(price)
+    deleteItem(price)
+    modalContainerE1.textContent = "";   
+  });  
+
 }
-// Modal asking users if they want to delete an item
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-var btn = document.getElementById("myBtn");
-
-var span = document.getElementsByClassName("close")[0];
 
 // initial map load
 function loadMapScenario() {
