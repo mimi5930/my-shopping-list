@@ -107,7 +107,7 @@ var formSubmitHandler = function(event) {
 
 var getProduct = function(item) {
   // format the api url
-  var apiUrl = "https://api.bestbuy.com/v1/products(name=" + item + "*)?&format=json&show=name,salePrice&pageSize=3&apiKey=" + bestbuyApiKey;
+  var apiUrl = "https://api.bestbuy.com/v1/products(name=" + item + "*)?&format=json&show=name,salePrice&pageSize=5&apiKey=" + bestbuyApiKey;
 
   // make a get request to url
   fetch(apiUrl)
@@ -119,7 +119,12 @@ var getProduct = function(item) {
           console.log(data);
           var productName = data.products[0].name;
           var productPrice = data.products[0].salePrice;
-
+          for(var i =0; i < data.products.length; i++) {
+            if(searchHistoryItemArr[i] === productName){
+              productName = data.products[i + 1].name
+              productPrice = data.products[i +1].salePrice
+            }
+          }
           displayProduct(productName, productPrice);
           updateArrays(productName, productPrice)
           
