@@ -16,7 +16,7 @@ To run this project,
 https://mimi5930.github.io/my-shopping-list/
 
 # Screenshot of deployed web application
-(screenshot)
+![Screenshot](assets/images/Screenshot%202022-01-16%2016.22.41.png)
 
 # Authors
 Yasemin Akturk, Robel Gebremeskel, Nate Huerd, Mike Miller, Cameron Nelson. 
