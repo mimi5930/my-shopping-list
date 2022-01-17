@@ -1,10 +1,8 @@
 /* Universal Styling Start */
+
 :root {
-    /* !In materialize: class = blue darken-4 */
     --primary-color: #0d47a1;
-    /* !In materialize: class = blue darken-1 */
     --secondary-color: #1e88e5;
-    /* !In materialize: class = white  */
     --tertiary-color: #ffffff;
     --border-default: 15px; 
 }
@@ -152,7 +150,7 @@ td {
 
 }
 
-/* Toasts Style */
+/* Toasts Style Start */
 #toast-container {
     top: auto !important;
     right: auto !important;
@@ -160,4 +158,4 @@ td {
     left:40%;  
   }
 
-/* Toasts Style*/
+/* Toasts Style End */
