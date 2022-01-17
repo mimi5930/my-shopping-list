@@ -102,7 +102,19 @@ var formSubmitHandler = function(event) {
 
     // clear old content
     itemNameE1.value = "";
-  } 
+  } else {
+    function myMessage() {
+      M.toast({
+        html:'Please enter item name',
+        classes:'blue darken-4',
+        displayLength:1500,
+        InDuration: 2000,
+        outDuration: 3000
+      });
+        
+    }
+    myMessage();
+  }
 
 };
 
