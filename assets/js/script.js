@@ -1,15 +1,17 @@
+// DOM Selectors
 var itemInputE1 = document.querySelector("#item-button");
 var itemNameE1 = document.querySelector("#item-text");
 var zipInputEl = document.querySelector("#zip-button");
 var zipNameEl = document.querySelector("#zip-text");
 var zipNameDisplayEl = document.querySelector(".zip-name");
 var modalContainerE1 = document.querySelector(".modal")
-
-var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
-
 var totalPriceE1 =document.querySelector('#total-price');
+
+// Global variables
+var bestbuyApiKey = "Ou7MZjAsEdRGa1vhKpsui9Xg";
 var searchHistoryItemArr = []
 var searchHistoryPriceArr = []
+
 
 var getLoc = function() {
   var search = zipNameEl.value;
@@ -114,9 +116,7 @@ var getProduct = function(item) {
     .then(function(response) {
       // request was successful
       if (response.ok) {
-        console.log(response);
         response.json().then(function(data) {
-          console.log(data);
           var productName = data.products[0].name;
           var productPrice = data.products[0].salePrice;
           for(var i =0; i < data.products.length; i++) {
@@ -152,13 +152,10 @@ var getProduct = function(item) {
 
 var deleteItem = function(Price) {
     var index = searchHistoryPriceArr.indexOf(Price)
-    console.log(index)
     if(index > -1){
       searchHistoryPriceArr = searchHistoryPriceArr.splice(index +1)
       searchHistoryItemArr =  searchHistoryItemArr.splice(index +1)
     }
-    console.log(searchHistoryItemArr)
-    console.log(searchHistoryPriceArr)
     updateArrays()
 }
 
@@ -194,7 +191,8 @@ var displayProduct = function(name,price) {
 
 
 //Function to delete rows
-function deleteRow(obj) {
+
+var deleteRow = function(obj) {
   var index = obj.parentNode.parentNode.rowIndex;
   var table = document.getElementById("myTableData");  
   var itemPrice = obj.parentNode.parentNode.getElementsByTagName("td")[1]
@@ -221,7 +219,6 @@ function deleteRow(obj) {
 
     $('#modal1').modal('close');
     table.deleteRow(index);
-    console.log(price)
     deleteItem(price)
     modalContainerE1.textContent = "";   
   });  
@@ -229,7 +226,7 @@ function deleteRow(obj) {
 }
 
 // initial map load
-function loadMapScenario() {
+var loadMapScenario = function() {
   var placeholderLat = 44.86326725347792;
   var placeholderLon = -93.29279234302264;
   var map = new Microsoft.Maps.Map("#myMap", {
@@ -240,7 +237,7 @@ function loadMapScenario() {
 }
 
 // add pushpins and center map to include them all
-function addMapPushpin (arr) {
+var addMapPushpin = function(arr) {
   // make new array of just the coordinates for bing api to center
   locationRange = [];
   arrLength = arr.length;
@@ -287,6 +284,7 @@ $("#zip-text").on("keypress", function(event) {
     getLoc();
   }
 });
+
 itemInputE1.addEventListener("click", formSubmitHandler);
 $("#item-text").on("keypress", function(event) {
   if (event.which == 13) {
@@ -294,4 +292,6 @@ $("#item-text").on("keypress", function(event) {
     formSubmitHandler();
   }
 });
+
+// initial load content from local storage
 getFromHistoryArr();
