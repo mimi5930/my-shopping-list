@@ -1,4 +1,4 @@
-var itemInputE1 = document.querySelector("#item-input");
+var itemInputE1 = document.querySelector("#item-button");
 var itemNameE1 = document.querySelector("#item-text");
 var zipInputEl = document.querySelector("#zip-button");
 var zipNameEl = document.querySelector("#zip-text");
